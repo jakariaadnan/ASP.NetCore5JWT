@@ -19,7 +19,7 @@ namespace Auth.Model
         public DateTime NotBefore => DateTime.UtcNow;
         public DateTime IssuedAt => DateTime.UtcNow;
 
-        public TimeSpan ValidFor { get; set; } = TimeSpan.FromMinutes(5);
+        public TimeSpan ValidFor { get; set; } = TimeSpan.FromMinutes(30);
 
         public Func<Task<String>> JtiGenerator =>
         () => Task.FromResult(Guid.NewGuid().ToString());

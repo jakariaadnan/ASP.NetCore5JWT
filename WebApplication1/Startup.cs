@@ -2,6 +2,8 @@ using Auth.DBContext;
 using Auth.Model;
 using Auth.Services.JWT;
 using Auth.Services.JWT.Interfaces;
+using Auth.Services.Product;
+using Auth.Services.Product.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,6 +42,7 @@ namespace WebApplication1
                    .AddEntityFrameworkStores<ApplicationDBContext>()
                    .AddDefaultTokenProviders();
             services.AddSingleton<IJwtFactoryService, JwtFactoryService>();
+            services.AddScoped<IProductService, ProductService>();
             var jwtAppsettingsOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
 
             SymmetricSecurityKey _signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtAppsettingsOptions["SecreatKey"]));
