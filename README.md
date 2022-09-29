@@ -92,7 +92,9 @@ Step 4: Get Product Master And Product Details With ProductMasterId
     }
   ]
                 
-        
+Setp 5:
+  3rd Party API Call Responce
+  API: http://localhost:39996/api/Product/GetProductlistByApi
         
         
         
